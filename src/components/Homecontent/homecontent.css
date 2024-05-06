@@ -1,0 +1,39 @@
+/* Center the main grid */
+.grid.center {
+  justify-content: center;
+}
+
+/* Center the left and right divs */
+#left,
+#right {
+  text-align: center;
+}
+
+/* Make the main grid flex for medium and large screens */
+@media (min-width: 640px) {
+  .grid.center {
+    display: flex;
+  }
+}
+
+/* Make the main grid grid for small screens */
+@media (max-width: 639px) {
+  .grid.center {
+    display: grid;
+  }
+}
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
