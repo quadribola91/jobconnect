@@ -55,7 +55,7 @@ const Apply1 = () => {
   };
 
   return (
-    <div className="w-3/4 mx-auto">
+    <div className="w-full md:w-3/4 mx-auto p-2">
       <h2 className="text-xl font-semibold text-center mb-8">
         What Kind of Jobs are you looking for?
       </h2>
