@@ -36,8 +36,8 @@ const Fill1 = ({ onNext }) => {
   };
 
   return (
-    <div className="w-3/4 mx-auto">
-      <section className="bg-gray-200 p-8 rounded-md">
+    <div className="w-full lg:w-3/4 p-1 mx-auto mb-4">
+      <section className="bg-gray-200 p-6 rounded-md">
         <h2 className="text-2xl font-semibold text-center mb-8">
           Create Your Employer Account
         </h2>

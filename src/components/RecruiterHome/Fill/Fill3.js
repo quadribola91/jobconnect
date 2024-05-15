@@ -1,4 +1,3 @@
-// Fill3.jsx
 import React, { useState } from "react";
 
 const Fill3 = ({ onPost }) => {
@@ -26,8 +25,8 @@ const Fill3 = ({ onPost }) => {
   };
 
   return (
-    <div className="w-3/4 mx-auto">
-      <section className="bg-gray-200 p-8 rounded-md">
+    <div className="w-full lg:w-3/4 p-1 mx-auto mb-4">
+      <section className="bg-gray-200 p-6 rounded-md">
         <h2 className="text-2xl font-semibold text-center mb-8">
           Add Job Details
         </h2>
@@ -67,12 +66,9 @@ const Fill3 = ({ onPost }) => {
               required
             />
           </div>
-          <div className="mb-4 flex">
-            <div className="flex flex-col mr-4 w-1/3">
-              <label
-                htmlFor="payBy"
-                className="block text-lg font-semibold mb-2"
-              >
+          <div className="mb-4 flex flex-wrap">
+            <div className="flex flex-col mb-4 w-full md:w-1/3 md:pr-2">
+              <label htmlFor="payBy" className=" text-lg font-semibold mb-2">
                 Pay Show pay by <span className="text-red-500">*</span>
               </label>
               <input
@@ -81,15 +77,12 @@ const Fill3 = ({ onPost }) => {
                 name="payBy"
                 value={formData.payBy}
                 onChange={handleChange}
-                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
-            <div className="flex flex-col mr-4 w-1/3">
-              <label
-                htmlFor="amount"
-                className="block text-lg font-semibold mb-2"
-              >
+            <div className="flex flex-col mb-4 w-full md:w-1/3 md:px-2">
+              <label htmlFor="amount" className=" text-lg font-semibold mb-2">
                 Amount <span className="text-red-500">*</span>
               </label>
               <input
@@ -98,15 +91,12 @@ const Fill3 = ({ onPost }) => {
                 name="amount"
                 value={formData.amount}
                 onChange={handleChange}
-                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
-            <div className="flex flex-col w-1/3">
-              <label
-                htmlFor="rate"
-                className="block text-lg font-semibold mb-2"
-              >
+            <div className="flex flex-col mb-4 w-full md:w-1/3 md:pl-2">
+              <label htmlFor="rate" className=" text-lg font-semibold mb-2">
                 Rate <span className="text-red-500">*</span>
               </label>
               <input
@@ -115,7 +105,7 @@ const Fill3 = ({ onPost }) => {
                 name="rate"
                 value={formData.rate}
                 onChange={handleChange}
-                className="p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 required
               />
             </div>
