@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import pic1 from "../Jobconnect IMG/How2.png";
 import pic2 from "../Jobconnect IMG/Recruit.png";
 import pic3 from "../Jobconnect IMG/T1.png";
 import pic4 from "../Jobconnect IMG/T2.png";
+import "./Home2.css";
 
 const Home2 = () => {
+  const rightRef = useRef(null);
+  const leftRef = useRef(null);
+
+  useEffect(() => {
+    function isInViewport(ref) {
+      const rect = ref.current.getBoundingClientRect();
+      return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    }
+
+    function handleScroll() {
+      if (isInViewport(rightRef)) {
+        rightRef.current.classList.add("slide-in-from-right");
+      }
+      if (isInViewport(leftRef)) {
+        leftRef.current.classList.add("slide-in-from-left");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Trigger on initial render
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <div className="container mx-auto px-2 md:px-4 lg:px-12 py-8 mt-8">
       <h1 className="font-bold mb-4">About Job Connect</h1>
@@ -16,7 +42,7 @@ const Home2 = () => {
       </p>
 
       {/* Why Choose Job Connect Section */}
-      <section className="flex flex-col lg:flex-row mb-12">
+      <section ref={rightRef} className="flex flex-col lg:flex-row mb-12">
         <img
           src={pic2}
           alt="Why Choose Job Connect"
@@ -53,7 +79,7 @@ const Home2 = () => {
       </section>
 
       {/* How it Works Section */}
-      <section className="flex flex-col lg:flex-row mb-12">
+      <section ref={leftRef} className="flex flex-col lg:flex-row mb-12">
         <div className="lg:w-1/2 lg:mr-4 mt-8">
           <h2 className="font-bold mb-4 mt-4 lg:mt-12">How it Works</h2>
           <ol className="list-decimal pl-4">
@@ -88,7 +114,7 @@ const Home2 = () => {
 
       {/* Testimonials Section */}
       <h2 className="font-bold mb-12 text-center">Testimonials</h2>
-      <section className="flex flex-col md:flex-row mb-12 gap-3">
+      <section ref={rightRef} className="flex flex-col md:flex-row mb-12 gap-3">
         <div className="md:w-1/2 md:ml-4 flex justify-center items-center">
           <div className="container mx-auto flex flex-row justify-center">
             <img src={pic3} alt="Testimonials" className=" w-auto" />

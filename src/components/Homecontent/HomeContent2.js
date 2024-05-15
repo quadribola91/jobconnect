@@ -1,11 +1,36 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Home2 from "./Home2";
 import pic from "../Jobconnect IMG/Home1.png";
+import "./HomeContent2.css";
 
 const HomeContent2 = () => {
+  const leftRef = useRef(null);
+
+  useEffect(() => {
+    function isInViewport(ref) {
+      const rect = ref.current.getBoundingClientRect();
+      return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    }
+
+    function handleScroll() {
+      if (isInViewport(leftRef)) {
+        leftRef.current.classList.add("slide-in-from-left");
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Trigger on initial render
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
-      <div className="container mx-auto flex flex-col md:flex-row mb-4 px-2 sm:px-2 lg:px-3 mt-4">
+      <div
+        ref={leftRef}
+        className="container mx-auto flex flex-col md:flex-row mb-4 px-2 sm:px-2 lg:px-3 mt-4"
+      >
         <section className="mx-auto w-full lg:w-1/2 h-1/2">
           <div
             id="right"
