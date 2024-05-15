@@ -6,7 +6,7 @@ import pic4 from "../Jobconnect IMG/T2.png";
 
 const Home2 = () => {
   return (
-    <div className="container mx-auto px-4 lg:px-12 py-8 mt-8">
+    <div className="container mx-auto px-2 md:px-4 lg:px-12 py-8 mt-8">
       <h1 className="font-bold mb-4">About Job Connect</h1>
       <p className="lg:w-1/2">
         Welcome to Job Connect, your ultimate destination for seamless job
@@ -88,19 +88,15 @@ const Home2 = () => {
 
       {/* Testimonials Section */}
       <h2 className="font-bold mb-12 text-center">Testimonials</h2>
-      <section className="flex flex-col lg:flex-row mb-12">
-        <div className="lg:w-1/2 lg:ml-4 flex justify-center items-center">
+      <section className="flex flex-col md:flex-row mb-12 gap-3">
+        <div className="md:w-1/2 md:ml-4 flex justify-center items-center">
           <div className="container mx-auto flex flex-row justify-center">
-            <img
-              src={pic3}
-              alt="Testimonials"
-              className="mb-4 w-auto hidden md:block"
-            />
+            <img src={pic3} alt="Testimonials" className=" w-auto" />
             <img src={pic4} alt="Testimonials" className="w-auto" />
           </div>
         </div>
 
-        <div className="lg:w-1/2 lg:mr-4">
+        <div className="md:w-1/2 md:mr-4">
           <div className="mb-4">
             <p className="bg-blue-800 text-white text-sm p-4 mb-4 lg:mb-8 rounded-2xl">
               *Job Connect has been a game changer for our hiring needs. Not
