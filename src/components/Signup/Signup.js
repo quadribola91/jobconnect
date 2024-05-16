@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import RegisterUser from "../Registerform/RegisterUser";
-import { Link } from "react-router-dom";
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,8 @@ const SignupPage = () => {
     role: "", // Added field for user role
     acceptTerms: false, // Added field to track if terms are accepted
   });
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -24,7 +26,7 @@ const SignupPage = () => {
     e.preventDefault();
     try {
       await RegisterUser(formData); // Call the registerUser function with form data
-      // Handle success (e.g., redirect user or show success message)
+      navigate("/dashboard"); // Redirect to dashboard on successful registration
     } catch (error) {
       console.error("Registration failed:", error);
       // Handle error (e.g., display error message)

@@ -19,7 +19,7 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4">
+    <div className="max-w-4xl mx-auto px-4 mt-24">
       <div id="profiletitle" className="text-center mt-8">
         <div className="flex justify-center items-center">
           <FaBriefcase className="text-xl text-blue-700 mr-2 h-9 w-9" />{" "}

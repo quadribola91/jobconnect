@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Home2 from "./Home2";
 import pic from "../Jobconnect IMG/Home1.png";
 import "./HomeContent2.css";
+import Dashboard from "../Dashboard/Dashboard";
 
 const HomeContent2 = () => {
   const leftRef = useRef(null);
@@ -98,6 +99,7 @@ const HomeContent2 = () => {
         </section>
       </div>
       <Home2 />
+      <Dashboard />
     </>
   );
 };

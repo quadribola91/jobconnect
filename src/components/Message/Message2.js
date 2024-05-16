@@ -14,7 +14,7 @@ const Message2 = () => {
   };
   return (
     <>
-      <section className="container mx-auto flex flex-col md:flex-row gap-4 mb-8 px-4 py-2">
+      <section className="container mx-auto flex flex-col md:flex-row gap-4 mb-8 px-4 py-2 mt-24">
         <div className="bg-gray-300 rounded-xl px-6 py-3 w-full md:w-1/4">
           <Link>
             <img src={pic1} alt="Create New" />

@@ -66,13 +66,13 @@ const Navbar3 = () => {
 
       {/* End Section */}
       <div className="flex items-center">
-        <Link to="/signup">
+        <Link to="/notify1">
           <img src={pic1} className="hidden md:block mr-3" />
         </Link>
-        <Link to="/login">
+        <Link to="/message2">
           <img src={pic2} className="hidden md:block mr-3" />
         </Link>{" "}
-        <Link to="/login">
+        <Link to="/userprofile">
           <img src={pic3} className="hidden md:block mr-3" />
         </Link>
         {/* Mobile Menu Button */}
@@ -157,13 +157,13 @@ const Navbar3 = () => {
           >
             CONTACT
           </Link>
-          <Link to="/signup">
+          <Link to="/notify1">
             <img src={pic1} className="mb-2" />
           </Link>
-          <Link to="/login">
+          <Link to="/message2">
             <img src={pic2} className="mb-2" />
           </Link>{" "}
-          <Link to="/login">
+          <Link to="/userprofile">
             <img src={pic3} className="mb-2" />
           </Link>
         </div>

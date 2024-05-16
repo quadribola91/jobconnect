@@ -29,7 +29,7 @@ const Notify = () => {
   return (
     <div
       ref={rightRef}
-      className="container mx-auto flex flex-col items-center justify-center h-full mb-8"
+      className="container mx-auto flex flex-col items-center justify-center h-full mb-8 mt-4"
     >
       <img src={pic} alt="Notification" className="mb-4" />
       <div className="text-center">
