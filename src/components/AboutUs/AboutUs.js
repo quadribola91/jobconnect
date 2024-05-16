@@ -4,7 +4,7 @@ import pic from "../Jobconnect IMG/AboutUS1.png";
 const AboutUs = () => {
   return (
     <>
-      <div className="container mx-auto px-2 sm:px-2 lg:px-12 mt-12 mb-8 gap-2">
+      <div className="container mx-auto px-2 sm:px-2 lg:px-4 mt-12 mb-8 gap-2">
         <section className="mx-auto px-2 flex flex-col lg:flex-row mb-4 lg:mb-8">
           <div className="w-full lg:w-3/4 h-1/2">
             <div className="mt-12 mb-8">

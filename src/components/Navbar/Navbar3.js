@@ -66,13 +66,13 @@ const Navbar3 = () => {
 
       {/* End Section */}
       <div className="flex items-center">
-        <Link to="/notify1">
+        <Link to="/notify1" onClick={scrollToTop}>
           <img src={pic1} className="hidden md:block mr-3" />
         </Link>
-        <Link to="/message2">
+        <Link to="/message2" onClick={scrollToTop}>
           <img src={pic2} className="hidden md:block mr-3" />
         </Link>{" "}
-        <Link to="/userprofile">
+        <Link to="/userprofile" onClick={scrollToTop}>
           <img src={pic3} className="hidden md:block mr-3" />
         </Link>
         {/* Mobile Menu Button */}
@@ -157,13 +157,13 @@ const Navbar3 = () => {
           >
             CONTACT
           </Link>
-          <Link to="/notify1">
+          <Link to="/notify1" onClick={scrollToTop}>
             <img src={pic1} className="mb-2" />
           </Link>
-          <Link to="/message2">
+          <Link to="/message2" onClick={scrollToTop}>
             <img src={pic2} className="mb-2" />
           </Link>{" "}
-          <Link to="/userprofile">
+          <Link to="/userprofile" onClick={scrollToTop}>
             <img src={pic3} className="mb-2" />
           </Link>
         </div>

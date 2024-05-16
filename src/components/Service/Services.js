@@ -5,7 +5,7 @@ import man from "../Jobconnect IMG/Man is hired.png";
 const Services = () => {
   return (
     <>
-      <div className="container mx-auto px-2 sm:px-2 lg:px-12 mt-20">
+      <div className="container mx-auto px-2 sm:px-2 lg:px-8 mt-20">
         <h1 className="font-bold text-3xl mb-12">Services we provide:</h1>
         <section className="container mx-auto flex flex-col lg:flex-row mb-4">
           <div className="w-full lg:w-3/4 h-1/2">
@@ -46,9 +46,9 @@ const Services = () => {
               out on a potential career-changing opportunity.
             </p>
           </div>
-          <div className="w-full sm:w-1/2 h-1/2 justify-center ml-4 lg:ml-16 lg:mt-4">
+          <div className="w-full lg:w-1/2 h-1/2 justify-center ml-4 lg:ml-16 lg:mt-4">
             <img
-              className="w-full lg:w-3/4 h-1/2 justify-center items-center"
+              className="w-full md:w-1/2 lg:w-3/4 h-1/2justify-center items-center"
               src={man}
             />
           </div>

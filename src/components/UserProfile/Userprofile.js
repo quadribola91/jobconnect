@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaBriefcase } from "react-icons/fa"; // Import the desired icon
 import { AiOutlineSearch } from "react-icons/ai"; // Import the search icon
 import pic from "../Navbar/highC.jpeg";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [profilePic, setProfilePic] = useState(null);
@@ -34,7 +35,7 @@ const UserProfile = () => {
       >
         <h1>User Profile</h1>
         <div className="flex flex-end">
-          <a href="#">Logout</a>
+          <Link to="/">Logout</Link>
           <AiOutlineSearch className="text-xl text-blue-700 cursor-pointer" />
         </div>
       </div>

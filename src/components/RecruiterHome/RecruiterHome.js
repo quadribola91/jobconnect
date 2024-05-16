@@ -13,7 +13,7 @@ const Card = ({ title, description }) => {
 
 const RecruiterHome = () => {
   return (
-    <div className="container mx-auto px-4 mt-8">
+    <div className="container mx-auto px-4 mt-24 md:mt-8">
       <section className="flex-col md:flex md:flex-row justify-between items-center">
         <div className="flex flex-col md:text-center md:w-1/2 items-center">
           <h1 className="font-bold text-2xl md:text-3xl lg:text-4xl mb-8 text-center">
