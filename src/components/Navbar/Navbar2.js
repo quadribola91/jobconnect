@@ -29,7 +29,7 @@ function Navbar2() {
       </div>
 
       {/* Center Section */}
-      <div className="hidden md:flex flex-grow justify-center gap-6">
+      <div className="hidden md:flex flex-grow justify-center gap-2 lg:gap-6">
         {/* Use Link instead of anchor tags for routing */}
         <Link
           to="/"

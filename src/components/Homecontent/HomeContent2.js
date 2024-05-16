@@ -58,7 +58,7 @@ const HomeContent2 = () => {
             </div>
 
             {/* Inside the input field */}
-            <div className="relative w-full justify-center mt-10">
+            <div className="relative w-full justify-center mt-10 mb-4">
               <input
                 type="text"
                 placeholder="Search any job openings here"
@@ -83,6 +83,7 @@ const HomeContent2 = () => {
               </div>
             </div>
           </div>
+          <Dashboard />
         </section>
         <section className="mx-auto w-full md:w-1/2 h-1/2 hidden lg:block">
           <div

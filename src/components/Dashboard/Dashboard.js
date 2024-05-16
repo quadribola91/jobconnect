@@ -12,19 +12,19 @@ const Dashboard = () => {
   return (
     <div className="px-6">
       <h2 className="text-center font-bold text-xl md:text-3xl mb-4">
-        Welcome to the Dashboard!
+        Dashboard!
       </h2>
       <div className="justify-between p-3 flex">
         <Link
           to="/recruiterhome"
-          className="dashboard-button flex flex-start text-white bg-blue-600 hover:bg-blue-400 p-3 rounded-md"
+          className="dashboard-button flex flex-start text-white bg-gray-300 hover:bg-blue-200 p-3 rounded-md"
           onClick={scrollToTop}
         >
           Recruiter
         </Link>
         <Link
           to="/seekerhome"
-          className="dashboard-button flex flex-end text-white bg-blue-600 hover:bg-blue-400 p-3 rounded-md"
+          className="dashboard-button flex flex-end text-white bg-gray-300 hover:bg-blue-200 p-3 rounded-md"
           onClick={scrollToTop}
         >
           Job Seeker
