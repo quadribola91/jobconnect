@@ -100,7 +100,6 @@ const HomeContent2 = () => {
         </section>
       </div>
       <Home2 />
-      <Dashboard />
     </>
   );
 };
