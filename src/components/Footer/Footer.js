@@ -64,8 +64,12 @@ const Footer = () => {
           <div className="w-full md:w-1/2 mb-8">
             <h3 className="text-lg font-semibold mb-4">About Our Company</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-              feugiat, odio eget molestie accumsan, turpis massa maximus enim.
+              At Job Connect, we're on a mission to simplify the job search and
+              hiring process for both employers and job seekers in today's
+              fast-paced world, finding the perfect job or candidate can be
+              daunting. That's where Job Connect comes in - we're your trusted
+              partner in navigating the ever-evolving landscape of employment
+              opportunities.
             </p>
           </div>
         </div>
