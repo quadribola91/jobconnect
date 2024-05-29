@@ -24,6 +24,9 @@ import Notify1 from "./components/Notify/Notify1";
 import Notify2 from "./components/Notify/Notify2";
 import Message1 from "./components/Message/Message1";
 import Message2 from "./components/Message/Message2";
+import Submit2 from "./components/SeekerHome/Submit/Submit2";
+import Submit3 from "./components/SeekerHome/Submit/Submit3";
+import Submit4 from "./components/SeekerHome/Submit/Submit4";
 
 const App = () => {
   return (
@@ -107,6 +110,9 @@ const App = () => {
           element={<WithNavbar3 component={<Dashboard />} />}
         />
       </Routes>
+      <Submit2 />
+      <Submit3 />
+      <Submit4 />
       <Footer />
     </Router>
   );

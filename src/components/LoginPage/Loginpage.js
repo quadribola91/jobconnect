@@ -1,16 +1,31 @@
 import React, { useState } from "react";
-import { FaBriefcase } from "react-icons/fa"; // Import the desired icon
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
-  // State variables to store user input
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Perform login logic here, such as sending the data to the backend
+    // Placeholder login logic
+    // For demonstration purposes, let's assume the login is successful if both email and password are non-empty
+    if (email && password) {
+      // Simulate login success by setting authentication flag in localStorage
+      localStorage.setItem("isLoggedIn", true);
+
+      // Store user data in localStorage
+      const userData = {
+        email: email,
+        // Add other user data as needed
+      };
+      localStorage.setItem("userData", JSON.stringify(userData));
+
+      // Redirect the user to the dashboard or another page
+      navigate("/dashboard");
+    } else {
+      // Handle login failure, such as displaying an error message
+    }
     // Reset form fields after submission if needed
     setEmail("");
     setPassword("");
@@ -24,7 +39,6 @@ const LoginPage = () => {
         </div>
         <div>
           <form onSubmit={handleSubmit} className="mt-4">
-            {/* Email input */}
             <div className="mb-4">
               <label htmlFor="email" className="block text-blue-600 mb-2">
                 Email
@@ -39,7 +53,6 @@ const LoginPage = () => {
                 required
               />
             </div>
-            {/* Password input */}
             <div className="mb-4">
               <label htmlFor="password" className="block text-blue-600 mb-2">
                 Password
@@ -54,7 +67,6 @@ const LoginPage = () => {
                 required
               />
             </div>
-            {/* Add more input fields as needed */}
             <div className="mt-6 justify-center">
               <button
                 type="submit"

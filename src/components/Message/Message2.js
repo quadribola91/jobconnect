@@ -35,8 +35,9 @@ const Message2 = () => {
         <div className="container mx-auto flex flex-col w-full md:w-3/4">
           <h1 className="font-bold mb-4">Jobs</h1>
           <div className="flex justify-between items-center mb-4">
-            <button className="bg-blue-500 text-white px-3 py-1 rounded-lg mr-3">
-              Open and Paused(0) <span className="bg-gray-200">Closed(0)</span>
+            <button className="flex rounded-md p-2">
+              <p className="bg-blue-600">Open and Paused(0)</p>
+              <p className="bg-gray-200">Closed(0)</p>
             </button>
           </div>
           <div className="relative mb-4">

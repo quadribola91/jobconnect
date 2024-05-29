@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import pic from "../Jobconnect IMG/Recruit.png";
 
 // Card component for each section
@@ -12,6 +12,16 @@ const Card = ({ title, description }) => {
 };
 
 const RecruiterHome = () => {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    // Retrieve user data from localStorage
+    const storedUserData = localStorage.getItem("userData");
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
+
   return (
     <div className="container mx-auto px-4 mt-24 md:mt-8">
       <section className="flex-col md:flex md:flex-row justify-between items-center">

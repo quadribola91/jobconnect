@@ -1,5 +1,7 @@
+import React, { useEffect, useState } from "react";
 import pic from "../Jobconnect IMG/seekerimg.png";
 
+// Card component for each section
 const Card = ({ title, description }) => {
   return (
     <div className="text-center justify-center bg-gray-200 p-4 w-full md:w-60 mb-4 md:mb-0 md:mr-4 rounded-2xl h-auto md:h-60">
@@ -10,10 +12,20 @@ const Card = ({ title, description }) => {
 };
 
 const SeekerHome = () => {
+  const [userData, setUserData] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
   };
+
+  useEffect(() => {
+    // Retrieve user data from localStorage
+    const storedUserData = localStorage.getItem("userData");
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
 
   return (
     <div className="container mx-auto p-4 mt-10">

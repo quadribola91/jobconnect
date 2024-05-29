@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import RegisterUser from "../Registerform/RegisterUser";
+
+// Mock RegisterUser function
+const RegisterUser = async (formData) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ success: true });
+    }, 1000); // Simulate network delay
+  });
+};
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -8,11 +16,11 @@ const SignupPage = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "", // Added field for user role
-    acceptTerms: false, // Added field to track if terms are accepted
+    role: "",
+    acceptTerms: false,
   });
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -24,12 +32,38 @@ const SignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form data submitted: ", formData);
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    if (!formData.role) {
+      alert("Please select a role");
+      return;
+    }
     try {
-      await RegisterUser(formData); // Call the registerUser function with form data
-      navigate("/dashboard"); // Redirect to dashboard on successful registration
+      const response = await RegisterUser(formData);
+      if (response.success) {
+        // Store user data in localStorage after successful registration
+        const userData = {
+          fullName: formData.fullName,
+          email: formData.email,
+          role: formData.role,
+        };
+        localStorage.setItem("userData", JSON.stringify(userData));
+
+        // Redirect the user to the appropriate dashboard
+        if (formData.role === "recruiter") {
+          navigate("/recruiterhome");
+        } else if (formData.role === "jobSeeker") {
+          navigate("/seekerhome");
+        }
+      } else {
+        alert("Registration failed");
+      }
     } catch (error) {
       console.error("Registration failed:", error);
-      // Handle error (e.g., display error message)
+      alert("An error occurred during registration");
     }
   };
 
@@ -39,105 +73,100 @@ const SignupPage = () => {
         <div className="flex justify-center items-center mb-5">
           <h1 className="font-bold text-2xl">Sign Up</h1>
         </div>
-        <div>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label htmlFor="fullName" className="text-white mb-1 block">
-                Full Name
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="fullName" className="text-white mb-1 block">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              className="w-full mb-3 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+              value={formData.fullName}
+              onChange={handleChange}
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="email" className="text-white mb-1 block">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="w-full mb-3 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password" className="text-white mb-1 block">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="w-full mb-3 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="confirmPassword" className="text-white mb-1 block">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              className="w-full mb-3 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label className="text-white mb-1 block">Role</label>
+            <div>
+              <label className="mr-4">
+                <input
+                  type="radio"
+                  name="role"
+                  value="recruiter"
+                  checked={formData.role === "recruiter"}
+                  onChange={handleChange}
+                />{" "}
+                Recruiter
               </label>
-              <input
-                type="text"
-                id="fullName"
-                name="fullName"
-                className="w-full mb-3 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
-                value={formData.fullName}
-                onChange={handleChange}
-                placeholder="Enter your full name"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="text-white mb-1 block">
-                Email
+              <label>
+                <input
+                  type="radio"
+                  name="role"
+                  value="jobSeeker"
+                  checked={formData.role === "jobSeeker"}
+                  onChange={handleChange}
+                />{" "}
+                Job Seeker
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full mb-3 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-                required
-              />
             </div>
-            <div className="mb-3">
-              <label htmlFor="password" className="text-white mb-1 block">
-                Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                className="w-full mb-3 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Enter your password"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label
-                htmlFor="confirmPassword"
-                className="text-white mb-1 block"
-              >
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                id="confirmPassword"
-                name="confirmPassword"
-                className="w-full mb-3 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                placeholder="Confirm your password"
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label className="text-white mb-1 block">Role</label>
-              <div>
-                <label className="mr-4">
-                  <input
-                    type="radio"
-                    name="role"
-                    value="recruiter"
-                    checked={formData.role === "recruiter"}
-                    onChange={handleChange}
-                  />{" "}
-                  Recruiter
-                </label>
-                <label>
-                  <input
-                    type="radio"
-                    name="role"
-                    value="jobSeeker"
-                    checked={formData.role === "jobSeeker"}
-                    onChange={handleChange}
-                  />{" "}
-                  Job Seeker
-                </label>
-              </div>
-            </div>
-            <button
-              type="submit"
-              className="w-full justify-center cursor-pointer text-center bg-blue-900 text-white rounded-md py-2 px-4 font-semibold hover:bg-blue-800 focus:outline-none focus:bg-blue-600"
-              disabled={!formData.acceptTerms} // Disable button if terms are not accepted
-            >
-              Sign Up
-            </button>
-          </form>
-        </div>
+          </div>
+          <button
+            type="submit"
+            className="w-full justify-center cursor-pointer text-center bg-blue-900 text-white rounded-md py-2 px-4 font-semibold hover:bg-blue-800 focus:outline-none focus:bg-blue-600"
+            disabled={!formData.acceptTerms}
+          >
+            Sign Up
+          </button>
+        </form>
         <div className="mt-3">
           <label>
             <input
