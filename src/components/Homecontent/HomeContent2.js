@@ -83,7 +83,6 @@ const HomeContent2 = () => {
               </div>
             </div>
           </div>
-          <Dashboard />
         </section>
         <section className="mx-auto w-full md:w-1/2 h-1/2 hidden lg:block">
           <div
