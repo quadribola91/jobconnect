@@ -110,9 +110,6 @@ const App = () => {
           element={<WithNavbar3 component={<Dashboard />} />}
         />
       </Routes>
-      <Submit2 />
-      <Submit3 />
-      <Submit4 />
       <Footer />
     </Router>
   );
