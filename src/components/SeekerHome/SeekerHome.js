@@ -26,9 +26,16 @@ const SeekerHome = () => {
       setUserData(JSON.parse(storedUserData));
     }
   }, []);
+  // Function to handle smooth scrolling to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
 
   return (
-    <div className="container mx-auto p-4 mt-10">
+    <div className="container mx-auto p-4 mt-10" onClick={scrollToTop}>
       <section className="flex-col md:flex-row flex-grow flex-shrink">
         <div id="top" className="rounded-lg p-8 flex-grow-1">
           <div className="px-6 md:px-4 text-xl md:text-4xl lg:text-5xl font-bold">

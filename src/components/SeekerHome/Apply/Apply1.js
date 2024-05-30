@@ -53,9 +53,16 @@ const Apply1 = () => {
       addFunction();
     }
   };
+  // Function to handle smooth scrolling to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
 
   return (
-    <div className="w-full md:w-3/4 mx-auto p-2">
+    <div className="w-full md:w-3/4 mx-auto p-2" onClick={scrollToTop}>
       <h2 className="text-xl font-semibold text-center mb-8">
         What Kind of Jobs are you looking for?
       </h2>

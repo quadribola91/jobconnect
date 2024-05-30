@@ -25,8 +25,15 @@ const Fill2 = ({ onNext }) => {
     onNext();
   };
 
+  // Function to handle smooth scrolling to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
   return (
-    <div className="w-full lg:w-3/4 p-1 mx-auto mb-4">
+    <div className="w-full lg:w-3/4 p-1 mx-auto mb-4" onClick={scrollToTop}>
       <section className="bg-gray-200 p-6 rounded-md">
         <h2 className="text-2xl font-semibold text-center mb-8">
           Add Job Basics

@@ -1,9 +1,19 @@
 import React from "react";
 
 const Submit2 = () => {
+  // Function to handle smooth scrolling to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
   return (
     <>
-      <div className="container mx-auto px-2 py-2 md:py-4 lg:px-48 lg:py-4">
+      <div
+        className="container mx-auto px-2 py-2 md:py-4 lg:px-48 lg:py-4"
+        onClick={scrollToTop}
+      >
         <section className="container mx-auto px-2 py-2 bg-gray-300 rounded-md mb-4">
           <h1 className="font-bold mb-3 mt-4 p-4">
             Add your contact information

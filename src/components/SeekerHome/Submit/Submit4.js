@@ -6,9 +6,19 @@ import Menu from "../Submit/Image/Menu.png";
 import { Link } from "react-router-dom";
 
 const Submit4 = () => {
+  // Function to handle smooth scrolling to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
   return (
     <>
-      <div className="container mx-auto px-2 md:px-8 lg:px-24">
+      <div
+        className="container mx-auto px-2 md:px-8 lg:px-24"
+        onClick={scrollToTop}
+      >
         <section className="container mx-auto px-4 py-3 rounded-md mb-4">
           <h1 className="font-bold mb-8">USERNAME</h1>
           <div>

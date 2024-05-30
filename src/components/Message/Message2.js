@@ -12,9 +12,19 @@ const Message2 = () => {
     const searchQuery = e.target.value;
     // Perform search logic here (e.g., filter messages based on searchQuery)
   };
+  // Function to handle smooth scrolling to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
   return (
     <>
-      <section className="container mx-auto flex flex-col md:flex-row gap-4 mb-8 px-4 py-2 mt-24">
+      <section
+        className="container mx-auto flex flex-col md:flex-row gap-4 mb-8 px-4 py-2 mt-24"
+        onClick={scrollToTop}
+      >
         <div className="bg-gray-300 rounded-xl px-6 py-3 w-full md:w-1/4">
           <Link>
             <img src={pic1} alt="Create New" />

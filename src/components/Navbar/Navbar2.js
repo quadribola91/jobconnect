@@ -63,12 +63,12 @@ function Navbar2() {
 
       {/* End Section */}
       <div className="flex items-center">
-        <Link to="/signup">
+        <Link to="/signup" onClick={scrollToTop}>
           <button className="hidden md:block bg-blue-700 text-sm rounded-full px-7 py-3 text-white hover:text-gray-300  mr-4">
             Sign Up
           </button>
         </Link>
-        <Link to="/login">
+        <Link to="/login" onClick={scrollToTop}>
           <button className="hidden md:block bg-white text-sm px-7 py-2 rounded-full text-blue-500 hover:text-gray-300 border-2 border-blue-500 mr-4">
             Login
           </button>
@@ -156,12 +156,12 @@ function Navbar2() {
           >
             CONTACT
           </Link>
-          <Link to="/signup">
+          <Link to="/signup" onClick={scrollToTop}>
             <button className="block py-2 px-5 text-white bg-blue-700 rounded-full  hover:bg-blue-200 hover:text-gray-600">
               Sign Up
             </button>
           </Link>
-          <Link to="/login">
+          <Link to="/login" onClick={scrollToTop}>
             <button className="block py-2 px-5 text-blue-800 border-2 mt-4 border-blue-800 rounded-full bg-white hover:bg-blue-200 hover:text-gray-600">
               Login
             </button>

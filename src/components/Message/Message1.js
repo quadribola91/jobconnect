@@ -9,9 +9,16 @@ const Message1 = ({ messages, user }) => {
     // Perform search logic here (e.g., filter messages based on searchQuery)
   };
 
+  // Function to handle smooth scrolling to the top of the page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Add smooth scrolling behavior
+    });
+  };
   return (
     <>
-      <div className="container mx-auto px-2 mb-8 mt-12">
+      <div className="container mx-auto px-2 mb-8 mt-12" onClick={scrollToTop}>
         {/* Search input field with icon */}
         <div className="relative">
           <img
