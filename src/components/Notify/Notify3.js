@@ -62,7 +62,7 @@ const Notify3 = () => {
         </p>
         <Link to="/post-job">
           <button className="bg-blue-800 hover:bg-blue-600 text-white px-5 py-2 rounded-xl">
-            Post a Job
+            Find Jobs
           </button>
         </Link>
       </div>
