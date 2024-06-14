@@ -26,6 +26,7 @@ import Fill2 from "./components/RecruiterHome/Fill/Fill2";
 import Fill3 from "./components/RecruiterHome/Fill/Fill3";
 import Apply1 from "./components/SeekerHome/Apply/Apply1";
 import Footer from "./components/Footer/Footer";
+import Dashboard from "./components/Dashboard/Dashboard";
 import Notify1 from "./components/Notify/Notify1";
 import Notify2 from "./components/Notify/Notify2";
 import Notify3 from "./components/Notify/Notify3";
@@ -44,13 +45,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={
-            localStorage.getItem("isLoggedIn") === "true" ? (
-              <WithAuthenticatedNav component={<HomeContent2 />} />
-            ) : (
-              <WithNavbar2 component={<HomeContent2 />} />
-            )
-          }
+          element={<WithNavbar2 component={<HomeContent2 />} />}
         />
         <Route
           path="/signup"
@@ -131,6 +126,26 @@ const App = () => {
           path="/apply1"
           element={<WithNavbar3 component={<Apply1 />} />}
         />
+        <Route
+          path="/submit1"
+          element={<WithNavbar4 component={<Submit1 />} />}
+        />
+        <Route
+          path="/submit2"
+          element={<WithNavbar4 component={<Submit2 />} />}
+        />{" "}
+        <Route
+          path="/submit3"
+          element={<WithNavbar4 component={<Submit3 />} />}
+        />
+        <Route
+          path="/submit4"
+          element={<WithNavbar4 component={<Submit4 />} />}
+        />
+        <Route
+          path="/dashboard"
+          element={<WithNavbar3 component={<Dashboard />} />}
+        />
       </Routes>
       <Footer />
     </Router>
@@ -143,34 +158,6 @@ const WithNavbar2 = ({ component }) => (
     {component}
   </>
 );
-
-const WithAuthenticatedNav = ({ component }) => {
-  const userData = JSON.parse(localStorage.getItem("userData"));
-  const role = userData ? userData.role : null;
-
-  if (role === "recruiter") {
-    return (
-      <>
-        <Navbar3 />
-        {component}
-      </>
-    );
-  } else if (role === "jobSeeker") {
-    return (
-      <>
-        <Navbar4 />
-        {component}
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Navbar2 />
-        {component}
-      </>
-    );
-  }
-};
 
 const WithNavbar3 = ({ component }) => (
   <>
