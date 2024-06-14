@@ -71,7 +71,7 @@ const SignupPage = () => {
     <div className="container mx-auto flex justify-center items-center p-4 mt-12 mb-6">
       <div className="w-full max-w-md items-center bg-blue-600 py-10 px-10 rounded-2xl">
         <div className="flex justify-center items-center mb-5">
-          <h1 className="font-bold text-2xl">Sign Up</h1>
+          <h1 className="font-bold text-2xl text-white">Sign Up</h1>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">

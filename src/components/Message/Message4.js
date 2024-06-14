@@ -1,7 +1,7 @@
 import React from "react";
 import searchIcon from "../Jobconnect IMG/searchicon.png"; // Import the search icon image
 
-const Message1 = ({ messages, user }) => {
+const Message4 = ({ messages, user }) => {
   // Function to handle search input change
   const handleSearchInputChange = (e) => {
     // Perform search operation based on the input value
@@ -90,4 +90,4 @@ const Message1 = ({ messages, user }) => {
   );
 };
 
-export default Message1;
+export default Message4;

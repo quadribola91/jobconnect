@@ -8,25 +8,29 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     // Placeholder login logic
-    // For demonstration purposes, let's assume the login is successful if both email and password are non-empty
+    // For demonstration purposes, assume the login is successful if both email and password are non-empty
     if (email && password) {
       // Simulate login success by setting authentication flag in localStorage
       localStorage.setItem("isLoggedIn", true);
 
-      // Store user data in localStorage
-      const userData = {
-        email: email,
-        // Add other user data as needed
-      };
-      localStorage.setItem("userData", JSON.stringify(userData));
-
-      // Redirect the user to the dashboard or another page
-      navigate("/dashboard");
+      // Redirect the user based on their role stored in localStorage
+      const userData = JSON.parse(localStorage.getItem("userData"));
+      if (userData && userData.role === "recruiter") {
+        navigate("/recruiterhome");
+      } else if (userData && userData.role === "jobSeeker") {
+        navigate("/seekerhome");
+      } else {
+        // Handle the case where role is not set correctly or user data is missing
+        console.error("User role not found or invalid.");
+      }
     } else {
       // Handle login failure, such as displaying an error message
+      console.error("Please enter valid email and password.");
     }
-    // Reset form fields after submission if needed
+
+    // Reset form fields after submission
     setEmail("");
     setPassword("");
   };

@@ -1,7 +1,14 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Navbar2 from "./components/Navbar/Navbar2";
 import Navbar3 from "./components/Navbar/Navbar3";
+import Navbar4 from "./components/Navbar/Navbar4";
 import HomeContent2 from "./components/Homecontent/HomeContent2";
 import SignupPage from "./components/Signup/Signup";
 import LoginPage from "./components/LoginPage/Loginpage";
@@ -19,11 +26,13 @@ import Fill2 from "./components/RecruiterHome/Fill/Fill2";
 import Fill3 from "./components/RecruiterHome/Fill/Fill3";
 import Apply1 from "./components/SeekerHome/Apply/Apply1";
 import Footer from "./components/Footer/Footer";
-import Dashboard from "./components/Dashboard/Dashboard";
 import Notify1 from "./components/Notify/Notify1";
 import Notify2 from "./components/Notify/Notify2";
+import Notify3 from "./components/Notify/Notify3";
 import Message1 from "./components/Message/Message1";
 import Message2 from "./components/Message/Message2";
+import Message3 from "./components/Message/Message3";
+import Message4 from "./components/Message/Message4";
 import Submit2 from "./components/SeekerHome/Submit/Submit2";
 import Submit3 from "./components/SeekerHome/Submit/Submit3";
 import Submit4 from "./components/SeekerHome/Submit/Submit4";
@@ -33,10 +42,15 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Routes with Navbar2 */}
         <Route
           path="/"
-          element={<WithNavbar2 component={<HomeContent2 />} />}
+          element={
+            localStorage.getItem("isLoggedIn") === "true" ? (
+              <WithAuthenticatedNav component={<HomeContent2 />} />
+            ) : (
+              <WithNavbar2 component={<HomeContent2 />} />
+            )
+          }
         />
         <Route
           path="/signup"
@@ -58,34 +72,45 @@ const App = () => {
           path="/contact"
           element={<WithNavbar2 component={<Contact2 />} />}
         />
-        {/* Routes with Navbar3 */}
         <Route
           path="/register"
-          element={<WithNavbar3 component={<RegisterPage />} />}
+          element={<WithNavbar2 component={<RegisterPage />} />}
         />
         <Route
           path="/userprofile"
-          element={<WithNavbar3 component={<UserProfile />} />}
+          element={<WithNavbar4 component={<UserProfile />} />}
         />
         <Route
           path="/userprofilesearch"
           element={<WithNavbar3 component={<UserProfileSearch />} />}
-        />{" "}
+        />
         <Route
           path="/notify1"
           element={<WithNavbar3 component={<Notify1 />} />}
-        />{" "}
+        />
         <Route
           path="/notify2"
           element={<WithNavbar3 component={<Notify2 />} />}
-        />{" "}
+        />
+        <Route
+          path="/notify3"
+          element={<WithNavbar4 component={<Notify3 />} />}
+        />
         <Route
           path="/message1"
           element={<WithNavbar3 component={<Message1 />} />}
-        />{" "}
+        />
         <Route
           path="/message2"
           element={<WithNavbar3 component={<Message2 />} />}
+        />
+        <Route
+          path="/message3"
+          element={<WithNavbar4 component={<Message3 />} />}
+        />
+        <Route
+          path="/message4"
+          element={<WithNavbar4 component={<Message4 />} />}
         />
         <Route
           path="/auth"
@@ -93,7 +118,7 @@ const App = () => {
         />
         <Route
           path="/seekerhome"
-          element={<WithNavbar3 component={<SeekerHome />} />}
+          element={<WithNavbar4 component={<SeekerHome />} />}
         />
         <Route
           path="/recruiterhome"
@@ -105,10 +130,6 @@ const App = () => {
         <Route
           path="/apply1"
           element={<WithNavbar3 component={<Apply1 />} />}
-        />
-        <Route
-          path="/dashboard"
-          element={<WithNavbar3 component={<Dashboard />} />}
         />
       </Routes>
       <Footer />
@@ -123,9 +144,44 @@ const WithNavbar2 = ({ component }) => (
   </>
 );
 
+const WithAuthenticatedNav = ({ component }) => {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const role = userData ? userData.role : null;
+
+  if (role === "recruiter") {
+    return (
+      <>
+        <Navbar3 />
+        {component}
+      </>
+    );
+  } else if (role === "jobSeeker") {
+    return (
+      <>
+        <Navbar4 />
+        {component}
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Navbar2 />
+        {component}
+      </>
+    );
+  }
+};
+
 const WithNavbar3 = ({ component }) => (
   <>
     <Navbar3 />
+    {component}
+  </>
+);
+
+const WithNavbar4 = ({ component }) => (
+  <>
+    <Navbar4 />
     {component}
   </>
 );

@@ -1,12 +1,13 @@
+// This is the Job Seeker Navbar
+
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom"; // Import Link from React Router
 import pic from "../Jobconnect IMG/logo.jpg";
 import pic1 from "../Jobconnect IMG/notIcon.png";
 import pic2 from "../Jobconnect IMG/ChatIcon.png";
 import pic3 from "../Jobconnect IMG/proIcon.png";
 
-const Navbar3 = () => {
-  const navigate = useNavigate();
+const Navbar4 = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -21,61 +22,44 @@ const Navbar3 = () => {
     });
   };
 
-  // Function to handle logout
-  const handleLogout = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("userData");
-    navigate("/"); // Navigate to home page after logout
-  };
-
   return (
     <nav className="bg-white p-4 flex items-center fixed top-0 left-0 w-full z-10 justify-between">
-      {/* Start Section */}
+      {/* Start Section*/}
       <div className="flex items-center">
         <div className="flex flex-row">
           <Link
-            to="/recruiterhome"
+            to="/seekerhome"
             className="flex flex-row"
             onClick={scrollToTop}
           >
-            <img src={pic} alt="Logo" />
+            <img src={pic} />
           </Link>
         </div>
       </div>
 
       {/* Center Section */}
       <div className="hidden md:flex flex-grow justify-center">
+        {/* Use Link instead of anchor tags for routing */}
         <Link
-          to="/recruiterhome"
-          className="text-blue-700 mr-4 font-bold"
-          onClick={scrollToTop}
+          to="/seekerhome"
+          className="text-blue-700 mr-4 text-bold font-bold"
+          onClick={scrollToTop} // Add onClick event to scroll to the top
         >
           HOME
         </Link>
-        <button
-          onClick={handleLogout}
-          className="hidden md:block bg-blue-700 text-sm rounded-full px-7 py-3 text-white hover:text-gray-300  mr-4"
-        >
-          Log Out
-        </button>
       </div>
 
       {/* End Section */}
       <div className="flex items-center">
-        <Link to="/notify1" onClick={scrollToTop}>
-          <img
-            src={pic1}
-            className="hidden md:block mr-3"
-            alt="Notification Icon"
-          />
+        <Link to="/notify3" onClick={scrollToTop}>
+          <img src={pic1} className="hidden md:block mr-3" />
         </Link>
-        <Link to="/message1" onClick={scrollToTop}>
-          <img src={pic2} className="hidden md:block mr-3" alt="Message Icon" />
+        <Link to="/message3" onClick={scrollToTop}>
+          <img src={pic2} className="hidden md:block mr-3" />
+        </Link>{" "}
+        <Link to="/userprofile" onClick={scrollToTop}>
+          <img src={pic3} className="hidden md:block mr-3" />
         </Link>
-        <Link to="/message2" onClick={scrollToTop}>
-          <img src={pic3} className="hidden md:block mr-3" alt="Profile Icon" />
-        </Link>
-
         {/* Mobile Menu Button */}
         <button
           id="menuToggleBtn"
@@ -129,27 +113,22 @@ const Navbar3 = () => {
         }`}
       >
         <div className="flex flex-col top-40 justify-center items-center h-18 pt-8 pr-8">
+          {/* Use Link instead of anchor tags for routing */}
           <Link
-            to="/recruiterhome"
+            to="/seekerhome"
             className="block py-2 px-4 mt-8 mb-4 text-blue-800 hover:bg-blue-200 hover:text-gray-600 font-bold"
-            onClick={scrollToTop}
+            onClick={scrollToTop} // Add onClick event to scroll to the top
           >
             HOME
           </Link>
-          <button
-            onClick={handleLogout}
-            className="bg-blue-700 text-sm rounded-full px-7 py-3 text-white hover:text-gray-300  mr-4"
-          >
-            Log Out
-          </button>
-          <Link to="/notify1" onClick={scrollToTop}>
-            <img src={pic1} className="mb-2" alt="Notification Icon" />
+          <Link to="/notify3" onClick={scrollToTop}>
+            <img src={pic1} className="mb-2" />
           </Link>
-          <Link to="/message1" onClick={scrollToTop}>
-            <img src={pic2} className="mb-2" alt="Message Icon" />
-          </Link>
-          <Link to="/message2" onClick={scrollToTop}>
-            <img src={pic3} className="mb-2" alt="Profile Icon" />
+          <Link to="/message3" onClick={scrollToTop}>
+            <img src={pic2} className="mb-2" />
+          </Link>{" "}
+          <Link to="/userprofile" onClick={scrollToTop}>
+            <img src={pic3} className="mb-2" />
           </Link>
         </div>
       </div>
@@ -157,4 +136,4 @@ const Navbar3 = () => {
   );
 };
 
-export default Navbar3;
+export default Navbar4;
